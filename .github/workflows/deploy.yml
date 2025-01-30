@@ -28,11 +28,11 @@ jobs:
 
       - name: Build Docker Image  # Paso 3: Construir la imagen Docker
         run: |
-          docker build --build-arg SERVICE=${{ matrix.service }} -t ${{ secrets.DOCKER_USERNAME }}/StackP28:${{ matrix.service }} .
+          docker build --build-arg SERVICE=${{ matrix.service }} -t ${{ secrets.DOCKER_USERNAME }}/stackp28:${{ matrix.service }} .
         # Usa el argumento --build-arg para definir qué servicio se está construyendo
         # Etiqueta la imagen con el formato <DOCKER_USERNAME>/stackp28:<servicio>
 
       - name: Push Docker Image  # Paso 4: Subir la imagen a Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/StackP28:${{ matrix.service }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/stackp28:${{ matrix.service }}
         # Sube la imagen con la etiqueta generada anteriormente
